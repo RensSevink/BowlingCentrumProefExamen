@@ -12,8 +12,14 @@
     <form action="{{ route('scoring.store') }}" method="post">
         @csrf
         <input type="text" name="Name" placeholder="Insert a Name">
+        @error('Name')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
         <input type="hidden" name="ReservationId" placeholder="ReservationId" value="1">
         <input type="number" name="Points" placeholder="Insert Points">
+        @error('Points')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
         <input type="checkbox" name="IsActive" value="1">
         <input type="text" name="Note" placeholder="Insert a Note">
         <input type="submit" value="Submit">

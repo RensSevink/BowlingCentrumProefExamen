@@ -42,10 +42,10 @@ class ScoringController extends Controller
 
         Scoring::create([
             'ReservationId' => $request->ReservationId,
-            'name' => $request->Name,
-            'points' => $request->Points,
-            'isactive' => $request->IsActive,
-            'note' => $request->Note,
+            'Name' => $request->Name,
+            'Points' => $request->Points,
+            'IsActive' => $request->IsActive,
+            'Note' => $request->Note,
         ]);
 
         return redirect()->route('scoring.index')
