@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Scoring;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class ScoringController extends Controller
@@ -67,7 +68,8 @@ class ScoringController extends Controller
      */
     public function edit(Scoring $scoring)
     {
-        //
+        $Reservation = Reservation::all();
+        return view('scoring.update', compact('scoring'));
     }
 
     /**
@@ -75,7 +77,18 @@ class ScoringController extends Controller
      */
     public function update(Request $request, Scoring $scoring)
     {
-        //
+        $request->validate([
+            'ReservationId' => 'required',
+            'Name' => 'required',
+            'Points' => 'required',
+            'IsActive' => 'required',
+            'Note' => 'nullable',
+        ]);
+
+        $scoring->update($request->all());
+
+        return redirect()->route('scoring.index')
+            ->with('success', 'Scoring updated successfully');
     }
 
     /**

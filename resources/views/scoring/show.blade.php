@@ -21,6 +21,7 @@
         @method('DELETE')
         <input type="submit" value="Delete">
     </form>
+    <a href="{{ route('scoring.edit', $scoring->id) }}">Edit</a>
 </body>
 
 </html>
