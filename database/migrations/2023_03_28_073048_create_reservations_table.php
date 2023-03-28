@@ -13,19 +13,18 @@ return new class extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('UserId')->constrained('user')->onDelete('cascade');
-            $table->int("ReservationNumber");
+            $table->foreignId('UserId')->constrained('users')->onDelete('cascade');
+            $table->integer("ReservationNumber");
             $table->date("ReservationDate");
             $table->time("ReservationTime");
-            $table->smallint("BowlingAlley");
+            $table->smallInteger("BowlingAlley");
             $table->boolean("HelpFences");
-            $table->smallint("NumberOfAdults");
-            $table->smallint("NumberOfChildren");
+            $table->smallInteger("NumberOfAdults");
+            $table->smallInteger("NumberOfChildren");
             $table->time("OpeningTime");
             $table->boolean("IsActive");
             $table->string("Note") ->nullable();
-            $table->date("DateCreated");
-            $table->date("DateChanged");
+            $table->timestamps();
         });
     }
 
