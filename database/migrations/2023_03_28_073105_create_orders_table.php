@@ -14,13 +14,12 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('ReservationId')->constrained('reservations')->onDelete('cascade');
-            $table->varchar('Food');
-            $table->varchar('Drinks');
+            $table->string('Food');
+            $table->string('Drinks');
             $table->decimal('Price');
             $table->boolean('IsActive');
-            $table->varchar('Note');
-            $table->date('DateCreated');
-            $table->date('DateChanged');
+            $table->string('Note');
+            $table->timestamps();
         });
     }
 

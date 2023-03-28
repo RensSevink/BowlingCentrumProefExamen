@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('occasion_options', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('OrderId')->constrained('order')->onDelete('cascade');
-            $table->varchar('TypeOfOccasion');
+            $table->foreignId('OrderId')->constrained('orders')->onDelete('cascade');
+            $table->string('TypeOfOccasion');
             $table->boolean('IsActive');
-            $table->varchar('Note');
-            $table->date('DateCreated');
-            $table->date('DateChanged');
+            $table->string('Note');
+            $table->timestamps();
         });
     }
 
