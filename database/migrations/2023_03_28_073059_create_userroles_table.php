@@ -11,8 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // maak een tabel aan met de naam userroles
         Schema::create('userroles', function (Blueprint $table) {
             $table->id();
+            // maak een veld aan met een relation naar de users tabel op id
+            $table->foreignId('UserId')->constrained('users')->onDelete('cascade');
+            // string
+            $table->string('Role');
+            // boolean
+            $table->boolean('IsActive');
+            // string
+            $table->string('Note') ->nullable();
+            // timestamps
             $table->timestamps();
         });
     }
