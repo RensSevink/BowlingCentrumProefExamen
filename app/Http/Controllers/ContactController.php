@@ -42,12 +42,11 @@ class ContactController extends Controller
             'UserId' => 1,
             'Email' => $request->Email,
             'Phonenumber' => $request->Phonenumber,
-            'IsActive' => true,
+            'IsActive' => 1,
             'Note' => $request->Note,
         ]);
 
-        return redirect()->route('contact.index')
-            ->with('success', 'Contact created successfully.');
+        return redirect()->route('contact.index')->with('success', 'Contact is succesvol toegevoegd');
     }
 
     /**
@@ -55,7 +54,9 @@ class ContactController extends Controller
      */
     public function show(Contact $contact)
     {
-
+        return view('contact.show', [
+            'contact' => $contact,
+        ]);
     }
 
     /**
@@ -63,7 +64,7 @@ class ContactController extends Controller
      */
     public function edit(Contact $contact)
     {
-        //
+        return view('contact.update', compact('contact'));
     }
 
     /**
@@ -71,7 +72,17 @@ class ContactController extends Controller
      */
     public function update(Request $request, Contact $contact)
     {
-        //
+        $request->validate([
+            'UserId' => 'required',
+            'Email' => 'required|email|unique:contacts,email,' . $contact->id,
+            'Phonenumber' => 'required',
+            'IsActive' => 'required',
+            'Note' => 'nullable',
+        ]);
+
+        $contact->update($request->all());
+
+        return redirect()->route('contact.index')->with('success', 'Contact is succesvol gewijzigd');
     }
 
     /**
@@ -81,7 +92,6 @@ class ContactController extends Controller
     {
         $contact->delete();
 
-        return redirect()->route('contact.index')
-            ->with('success', 'Contact deleted successfully');
+        return redirect()->route('contact.index')->with('success', 'Contact is verwijderd');
     }
 }

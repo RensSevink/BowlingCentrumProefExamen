@@ -12,8 +12,10 @@
     <form action="{{ route('contact.store') }}" method="post">
         @csrf
         <input type="hidden" name="UserId" placeholder="UserId" value="1">
-        <input type="text" name="Email" placeholder="Email">
-        <input type="number" name="Phonenumber" placeholder="Phone Number">
+        <th>Email</th>
+        <input type="text" name="Email" placeholder="Email" required value="{{ old('Email') }} ">
+        <th>Phone Number</th>
+        <input type="number" name="Phonenumber" placeholder="Phone Number" required value="{{ old('Phonenumber') }}">
         <input type="hidden" name="IsActive" placeholder="IsActive" value="1">
         <input type="submit" value="Submit">
     </form>

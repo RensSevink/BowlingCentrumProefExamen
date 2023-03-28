@@ -12,6 +12,13 @@
 <body>
     <nav></nav>
     <div class="container">
+        @if (session()->has('success'))
+            <div class="">
+                <ul>
+                    <li>{{ session()->get('success') }}</li>
+                </ul>
+            </div>
+        @endif
         <table>
             <thead>
                 <tr>
@@ -28,6 +35,10 @@
                         <td>{{ $contact->Email }}</td>
                         <td>{{ $contact->Phonenumber }}</td>
                         <td>{{ $contact->Note }}</td>
+                        <td>
+                            <a href="{{ route('contact.edit', ['contact' => $contact->id]) }}">Edit</a>
+                        </td>
+
                         <td>
                             <form method="post" action="{{ route('contact.destroy', $contact->id) }}">
                                 @csrf
