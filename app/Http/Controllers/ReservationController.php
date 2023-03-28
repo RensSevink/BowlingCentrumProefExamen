@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use App\Models\ReservationModel;
 
 class ReservationController extends Controller
 {
@@ -12,15 +13,33 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        return view('reservation');
+        $data = reservation::all();
+        return view('reservation', compact('data'));
     }
    
     /**
      * Upload data.
      */
-    public function upload()
+    public function upload(Request $request)
     {
-        //
+        $reservation = new reservation;
+        $reservation->id=$request->id;
+        $reservation->UserId=$request->UserId;
+        $reservation->reservationnumber=$request->reservationnumber;
+        $reservation->reservationdate=$request->reservationdate;
+        $reservation->reservationtime=$request->reservationtime;
+        $reservation->bowlingalley=$request->bowlingalley;
+        $reservation->helpfences=$request->helpfences;
+        $reservation->numberofadults=$request->numberofadults;
+        $reservation->numberofchildren=$request->numberofchildren;
+        $reservation->openingtime=$request->openingtime;
+        $reservation->isactive=$request->isactive;
+        $reservation->note=$request->note;
+        $reservation->created_at=$request->created_at;
+        $reservation->updated_at=$request->updated_at;
+
+        $reservation->save();
+        return redirect()->back();
     }
 
     /**
@@ -42,9 +61,9 @@ class ReservationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(ReservationModel $reservationModel)
+    public function view(ReservationModel $reservationModel)
     {
-        //
+        return view('display');
     }
 
     /**
