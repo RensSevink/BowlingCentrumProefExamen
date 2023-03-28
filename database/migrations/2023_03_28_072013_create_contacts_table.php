@@ -11,14 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('Firstname');
-            $table->string('Infix') ->nullable();
-            $table->string('Lastname');
-            $table->string('Password');
+            // maak een veld aan met een relation naar de schools tabel op id
+            $table->foreignId('UserId')->constrained('users')->onDelete('cascade');
+            // string
+            $table->string('Email');
+            // int
+            $table->int('Phonenumber');
+            // boolean
             $table->boolean('IsActive');
+            // string
             $table->string('Note') ->nullable();
+            // timestamps
             $table->timestamps();
         });
     }
@@ -28,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('contacts');
     }
 };

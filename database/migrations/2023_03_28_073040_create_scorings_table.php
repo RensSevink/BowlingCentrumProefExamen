@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        // maak een tabel aan met de naam scorings met de volgende velden
+        Schema::create('scorings', function (Blueprint $table) {
             $table->id();
-            $table->string('Firstname');
-            $table->string('Infix') ->nullable();
-            $table->string('Lastname');
-            $table->string('Password');
+            $table->foreignId('ReservationId')->constrained('reservations')->onDelete('cascade');
+            $table->string('Name');
+            $table->int('Points');
             $table->boolean('IsActive');
-            $table->string('Note') ->nullable();
+            $table->string('Note')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('scorings');
     }
 };
