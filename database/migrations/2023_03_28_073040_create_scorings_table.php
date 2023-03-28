@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('ReservationId')->constrained('reservations')->onDelete('cascade');
             $table->string('Name');
-            $table->int('Points');
+            $table->interger('Points');
             $table->boolean('IsActive');
             $table->string('Note')->nullable();
             $table->timestamps();

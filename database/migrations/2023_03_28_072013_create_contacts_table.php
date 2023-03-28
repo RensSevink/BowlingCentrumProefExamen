@@ -18,11 +18,11 @@ return new class extends Migration
             // string
             $table->string('Email');
             // int
-            $table->int('Phonenumber');
+            $table->interger('Phonenumber');
             // boolean
             $table->boolean('IsActive');
             // string
-            $table->string('Note') ->nullable();
+            $table->string('Note')->nullable();
             // timestamps
             $table->timestamps();
         });
