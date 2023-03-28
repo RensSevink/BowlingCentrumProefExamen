@@ -12,8 +12,9 @@
     <div class="dropdown">
         <button class="dropbtn">Dropdown</button>
             <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                <a href="#">optie 1</a>
+                <a href="#">optie 2</a>
+                <a href="#">optie 3</a>
             </div>
+            <a href="{{ route('order.create') }}">Create order</a>
     </div>

@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
-class OrderController extends Controller
+class SpecialOccasionController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('order.index', [
-            'order' => Order::all(),
+        return view('specialoccasion.index', [
+            'specialoccasion' => Order::all(),
         ]);
     }
 
@@ -22,7 +22,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('order.create');
+        return view('specialoccasion.create');
     }
 
     /**
@@ -31,22 +31,20 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'Food' => 'required',
-            'Drinks' => 'required',
-            'Price' => 'required',
+            'TypeOfOccasion' => 'nullable',
             'is_active' => 'required',
             'note' => 'nullable',
         ]);
 
-        Scoring::create([
-            'Food' => $request->Name,
-            'Drinks' => $request->Points,
-            'Price' => $request->IsActive,
+        Order::create([
+            'Food' => $request->Food,
+            'Drinks' => $request->Drinks,
+            'Price' => $request->Price,
             'is_active' => $request->IsActive,
             'note' => $request->Note,
         ]);
 
-        return redirect()->route('order.index')
-            ->with('success', 'Order created successfully.');
+        return redirect()->route('specialoccasion.index')
+            ->with('success', 'SpecialOccasion created successfully.');
     }
 }
