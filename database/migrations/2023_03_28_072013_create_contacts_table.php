@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             // maak een veld aan met een relation naar de schools tabel op id
-            $table->foreignId('UserId')->constrained('User')->onDelete('cascade');
+            $table->foreignId('UserId')->constrained('users')->onDelete('cascade');
             // string
             $table->string('Email');
             // int
