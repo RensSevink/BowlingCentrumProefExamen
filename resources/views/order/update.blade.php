@@ -26,7 +26,7 @@
                 <a href="#">optie 2</a>
                 <a href="#">optie 3</a>
             </div>
-            <a href="{{ route('order.create') }}">Change order</a>
+            <a href="{{ route('edit.create') }}">Change order</a>
     </div>
 </body>
 </html>
