@@ -94,4 +94,9 @@ class ContactController extends Controller
 
         return redirect()->route('contact.index')->with('success', 'Contact is verwijderd');
     }
+
+    public function add($number1, $number2)
+    {
+        return $number1 + $number2;
+    }
 }
