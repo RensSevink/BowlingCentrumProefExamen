@@ -18,7 +18,7 @@ return new class extends Migration
             // string
             $table->string('Email');
             // int
-            $table->interger('Phonenumber');
+            $table->integer('Phonenumber');
             // boolean
             $table->boolean('IsActive');
             // string
