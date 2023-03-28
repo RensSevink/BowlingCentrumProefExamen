@@ -101,4 +101,9 @@ class ScoringController extends Controller
         return redirect()->route('scoring.index')
             ->with('success', 'Scoring deleted successfully');
     }
+
+    public function add($number1, $number2)
+    {
+        return $number1 + $number2;
+    }
 }
