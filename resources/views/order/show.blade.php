@@ -7,6 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p>{{ $order->Food }}</p>
+    <p>{{ $order->Drink }}</p>
+    <p>{{ $order->Price}}</p>
+    <p>{{ $order->Note}}</p>
+    <p>{{ $order->created_at}}</p>
+    <p>{{ $order->updated_at}}</p>
+    <p>{{ $specialoccasion->TypeOfOccasion}}</p>
+    <p>{{ $specialoccasion->Note}}</p>
+    <p>{{ $specialoccasion->created_at}}</p>
+    <p>{{ $specialoccasion->updated_at}}</p>
+
+    <form method="post" action="{{ route('order.destroy', $order->id) }}">
+        @csrf
+        @method('DELETE')
+        <input type="submit" value="Delete">
+    </form>
+    <a href="{{ route('order.edit', ['order' => $order->id]) }}">edit</a>
 </body>
+
 </html>
