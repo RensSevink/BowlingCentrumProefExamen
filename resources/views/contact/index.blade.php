@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="{{ asset('assets/css/rens.css') }}">
     <title>Overview</title>
 </head>
 
@@ -36,14 +36,15 @@
                         <td>{{ $contact->Phonenumber }}</td>
                         <td>{{ $contact->Note }}</td>
                         <td>
-                            <a href="{{ route('contact.edit', ['contact' => $contact->id]) }}">Edit</a>
+                            <a class="inputsubmit inputsubmit:hover"
+                                href="{{ route('contact.edit', ['contact' => $contact->id]) }}">Edit</a>
                         </td>
 
                         <td>
                             <form method="post" action="{{ route('contact.destroy', $contact->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="Delete">
+                                <input class="delete" type="submit" value="Delete">
                             </form>
                         </td>
                     </tr>
