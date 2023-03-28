@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>update</title>
 </head>
 
 <body>
-    <form action="{{ route('scoring.update') }}" method="post">
+    <form action="{{ route('scoring.update', ['scoring' => $scoring->id]) }}" method="post">
         @method('PUT')
         @csrf
         <input type="text" name="Name" placeholder="Insert a Name" required>
