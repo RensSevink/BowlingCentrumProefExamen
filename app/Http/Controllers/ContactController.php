@@ -32,7 +32,7 @@ class ContactController extends Controller
     {
         $request->validate([
             'UserId' => 'required',
-            'Email' => 'required|email|unique:contact,email',
+            'Email' => 'required|email|unique:contacts,email',
             'Phonenumber' => 'required',
             'IsActive' => 'required',
             'Note' => 'nullable',
@@ -42,7 +42,7 @@ class ContactController extends Controller
             'UserId' => 1,
             'Email' => $request->Email,
             'Phonenumber' => $request->Phonenumber,
-            'IsActive' => 1,
+            'IsActive' => true,
             'Note' => $request->Note,
         ]);
 
