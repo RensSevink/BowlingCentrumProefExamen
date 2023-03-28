@@ -30,17 +30,21 @@ class ScoringController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $request->validate([
-            'name' => 'required',
-            'points' => 'required',
-            'is_active' => 'required',
-            'note' => 'nullable',
+            'ReservationId' => 'required',
+            'Name' => 'required',
+            'Points' => 'required',
+            'IsActive' => 'required',
+            'Note' => 'nullable',
         ]);
 
+
         Scoring::create([
+            'ReservationId' => $request->ReservationId,
             'name' => $request->Name,
             'points' => $request->Points,
-            'is_active' => $request->IsActive,
+            'isactive' => $request->IsActive,
             'note' => $request->Note,
         ]);
 

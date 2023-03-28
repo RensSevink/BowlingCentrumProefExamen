@@ -11,10 +11,11 @@
 <body>
     <form action="{{ route('scoring.store') }}" method="post">
         @csrf
-        <input type="text" name="name" placeholder="Insert a Name">
-        <input type="number" name="points" placeholder="Insert Points">
-        <input type="checkbox" name="isactive" value="1">
-        <input type="text" name="note" placeholder="Insert a Note">
+        <input type="text" name="Name" placeholder="Insert a Name">
+        <input type="hidden" name="ReservationId" placeholder="ReservationId" value="1">
+        <input type="number" name="Points" placeholder="Insert Points">
+        <input type="checkbox" name="IsActive" value="1">
+        <input type="text" name="Note" placeholder="Insert a Note">
         <input type="submit" value="Submit">
     </form>
 </body>
