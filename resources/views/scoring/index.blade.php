@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ asset('assets/css/rayan.css') }}">
     <title>Overview</title>
 </head>
 
-<body style="background-color: rgb(233, 245, 7)">
-    <h1 style="margin-left: 60rem">Scoring list</h1>
+<body>
+    <h1>Scoring list</h1>
     <ul>
         @foreach ($scoring as $scoring)
             <li>
@@ -19,8 +20,7 @@
             </li>
         @endforeach
 
-        <button style="background-color: rgb(6, 237, 56)"><a href="{{ route('scoring.create') }}">Create
-                score</a></button>
+        <button><a href="{{ route('scoring.create') }}">Create score</a></button>
     </ul>
     @if (\Session::has('success'))
         <div class="alert alert-success">
