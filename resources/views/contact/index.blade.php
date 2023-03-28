@@ -36,8 +36,7 @@
                         <td>{{ $contact->Phonenumber }}</td>
                         <td>{{ $contact->Note }}</td>
                         <td>
-                            <a class="inputsubmit inputsubmit:hover"
-                                href="{{ route('contact.edit', ['contact' => $contact->id]) }}">Edit</a>
+                            <a href="{{ route('contact.edit', ['contact' => $contact->id]) }}">Edit</a>
                         </td>
 
                         <td>
