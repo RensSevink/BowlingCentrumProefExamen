@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('ReservationId')->constrained('reservations')->onDelete('cascade');
+            $table->varchar('Food');
+            $table->varchar('Drinks');
+            $table->decimal('Price');
+            $table->boolean('IsActive');
+            $table->varchar('Note');
+            $table->date('DateCreated');
+            $table->date('DateChanged');
         });
     }
 
