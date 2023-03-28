@@ -8,8 +8,8 @@
     <title>Overview</title>
 </head>
 
-<body>
-    <h1>Scoring list</h1>
+<body style="background-color: rgb(233, 245, 7)">
+    <h1 style="margin-left: 60rem">Scoring list</h1>
     <ul>
         @foreach ($scoring as $scoring)
             <li>
@@ -18,7 +18,9 @@
                 </a>
             </li>
         @endforeach
-        <a href="{{ route('scoring.create') }}">Create score</a>
+
+        <button style="background-color: rgb(6, 237, 56)"><a href="{{ route('scoring.create') }}">Create
+                score</a></button>
     </ul>
     @if (\Session::has('success'))
         <div class="alert alert-success">

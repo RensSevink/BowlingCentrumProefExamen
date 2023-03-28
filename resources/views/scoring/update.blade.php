@@ -8,7 +8,7 @@
     <title>update</title>
 </head>
 
-<body>
+<body style="background-color: rgb(233, 245, 7)">
     <form action="{{ route('scoring.update', ['scoring' => $scoring->id]) }}" method="post">
         @method('PUT')
         @csrf
@@ -23,7 +23,7 @@
         @enderror
         <input type="checkbox" name="IsActive" value="1">
         <input type="text" name="Note" placeholder="Insert a Note">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" style="background-color: rgb(6, 237, 56)">
     </form>
 </body>
 

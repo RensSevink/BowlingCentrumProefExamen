@@ -8,7 +8,7 @@
     <title>Specific view</title>
 </head>
 
-<body>
+<body style="background-color: rgb(233, 245, 7)">
     <h1>{{ $scoring->Name }}</h1>
     <p>{{ $scoring->Points }}</p>
     <p>{{ $scoring->IsActive }}</p>
@@ -19,9 +19,10 @@
     <form method="post" action="{{ route('scoring.destroy', $scoring->id) }}">
         @csrf
         @method('DELETE')
-        <input type="submit" value="Delete">
+        <input type="submit" value="Delete" style="background-color: rgb(255, 4, 4)">
     </form>
-    <a href="{{ route('scoring.edit', ['scoring' => $scoring->id]) }}">Edit</a>
+    <button style="background-color: rgb(6, 237, 56)"> <a
+            href="{{ route('scoring.edit', ['scoring' => $scoring->id]) }}">Edit</a></button>
 </body>
 
 </html>
