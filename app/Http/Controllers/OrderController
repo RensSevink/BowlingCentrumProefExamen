@@ -1,0 +1,52 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Order;
+use Illuminate\Http\Request;
+
+class OrderController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        return view('order.index', [
+            'order' => Order::all(),
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('order.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        $request->validate([
+            'Food' => 'required',
+            'Drinks' => 'required',
+            'Price' => 'required',
+            'is_active' => 'required',
+            'note' => 'nullable',
+        ]);
+
+        Scoring::create([
+            'Food' => $request->Name,
+            'Drinks' => $request->Points,
+            'Price' => $request->IsActive,
+            'is_active' => $request->IsActive,
+            'note' => $request->Note,
+        ]);
+
+        return redirect()->route('order.index')
+            ->with('success', 'Order created successfully.');
+    }
+}
