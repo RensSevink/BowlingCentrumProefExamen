@@ -14,9 +14,9 @@ use App\Http\Controllers\ReservationController;
 |
 */
 
-Route::get('/reservation',[ReservationController::class, 'index']);
+Route::resource('/reservation',[ReservationController::class, 'index']);
 
 Route::post('/upload',[ReservationController::class, 'upload']);
 
-Route::get('/view',[ReservationController::class, 'view']);
+Route::resource('/display',ReservationController::class, 'display');
   

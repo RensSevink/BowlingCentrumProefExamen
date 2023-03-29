@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reservation;
 use Illuminate\Http\Request;
-use App\Models\ReservationModel;
+use App\Models\Reservations;
 
 class ReservationController extends Controller
 {
@@ -13,8 +12,8 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        $data = reservation::all();
-        return view('reservation', compact('data'));
+      
+        return view('reservation');
     }
    
     /**
@@ -61,15 +60,16 @@ class ReservationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function view(ReservationModel $reservationModel)
+    public function view(Reservations $reservations)
     {
-        return view('display');
+        $data = reservations::all();
+        return view('display', compact('data'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ReservationModel $reservationModel)
+    public function edit(Reservations $reservations)
     {
         //
     }

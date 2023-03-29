@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ReservationModel extends Model
+class Reservations extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,6 @@ class ReservationModel extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'reservationnumber',
         'reservationdate',
         'reservationtime',
         'bowlingalley',
